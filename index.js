@@ -18,5 +18,6 @@ app.get("/", (req, res) => {
   res.send("server");
 });
 
+
 // Export Lambda handler
 export const handler = serverless({ app });
