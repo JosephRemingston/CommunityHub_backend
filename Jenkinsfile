@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'node:20' } } // Node.js environment for npm
+    agent any  // Use the current Jenkins container
 
     environment {
         AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-        stage('Build Docker') {
+        stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${ECR_REPO}:${IMAGE_TAG} ."
             }
