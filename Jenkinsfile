@@ -2,12 +2,10 @@ pipeline {
     agent any  // Use the current Jenkins container
 
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        AWS_REGION            = credentials('aws-region')
-        ECR_REPO              = '390403879095.dkr.ecr.ap-south-1.amazonaws.com/community_hub_backend'
-        IMAGE_TAG             = "${GIT_COMMIT}"
-        LAMBDA_FUNCTION       = 'communityhub-backend'
+        AWS_REGION      = 'ap-south-1'
+        ECR_REPO        = '390403879095.dkr.ecr.ap-south-1.amazonaws.com/community_hub_backend'
+        IMAGE_TAG       = "${GIT_COMMIT}"
+        LAMBDA_FUNCTION = 'communityhub-backend'
     }
 
     stages {
@@ -31,7 +29,12 @@ pipeline {
 
         stage('Login to ECR') {
             steps {
-                sh 'aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-credentials-id'  // your Jenkins AWS credentials ID
+                ]]) {
+                    sh 'aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO'
+                }
             }
         }
 
@@ -43,12 +46,17 @@ pipeline {
 
         stage('Update Lambda') {
             steps {
-                sh """
-                aws lambda update-function-code \
-                --function-name $LAMBDA_FUNCTION \
-                --image-uri ${ECR_REPO}:${IMAGE_TAG} \
-                --region $AWS_REGION
-                """
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-credentials-id'
+                ]]) {
+                    sh """
+                    aws lambda update-function-code \
+                    --function-name $LAMBDA_FUNCTION \
+                    --image-uri ${ECR_REPO}:${IMAGE_TAG} \
+                    --region $AWS_REGION
+                    """
+                }
             }
         }
     }
