@@ -30,7 +30,6 @@
     "mongoose": "^8.19.1"
   },
   "jest": {
-    "testEnvironment": "node",
-    "extensionsToTreatAsEsm": [".js"]
+    "testEnvironment": "node"
   }
 }
