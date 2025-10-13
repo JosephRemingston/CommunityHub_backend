@@ -1,23 +1,18 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import serverless from "@vendia/serverless-express";
+import serverlessExpress from "@vendia/serverless-express";
 
-// Create Express app
 const app = express();
 
-const corsOptions = {
-  origin: "*",
-};
-
-app.use(cors(corsOptions));
+app.use(cors({ origin: "*" }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Simple route
 app.get("/", (req, res) => {
-  res.send("server");
+  res.json({ message: "Lambda Express is working!" });
 });
 
-
-// Export Lambda handler
-export const handler = serverless({ app });
+// Export the Lambda handler
+export const handler = serverlessExpress(app);

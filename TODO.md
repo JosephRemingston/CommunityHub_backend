@@ -166,11 +166,3 @@ A phased roadmap for the Community Hub project. Each phase contains features and
 - [ ] Analytics for campaign performance prediction
 
 ---
-
-If you'd like, I can:
-
-- Break any phase into smaller GitHub issues with templates.
-- Create a `PROJECT.md` with milestones and estimated story points.
-- Generate GitHub Actions templates for CI/CD, or a `.env.example` file.
-
-Tell me which of the above you'd like me to do next.
