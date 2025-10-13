@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'node:20' } } // Node.js environment for npm
 
     environment {
         AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
@@ -54,7 +54,11 @@ pipeline {
     }
 
     post {
-        success { echo 'Deployment succeeded!' }
-        failure { echo 'Deployment failed.' }
+        success {
+            echo 'Deployment succeeded!'
+        }
+        failure {
+            echo 'Deployment failed.'
+        }
     }
 }
