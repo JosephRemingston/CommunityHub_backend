@@ -2,13 +2,13 @@
 FROM public.ecr.aws/lambda/nodejs:20
 
 # Set working directory inside the container
-WORKDIR /var/task
+WORKDIR /
 
 # Copy package.json and package-lock.json first for caching
 COPY package*.json ./
 
 # Install dependencies (production only)
-RUN npm install --production
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
