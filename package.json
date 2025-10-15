@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
