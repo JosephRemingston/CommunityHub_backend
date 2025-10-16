@@ -8,13 +8,17 @@ import {
   logout,
 } from "../controllers/authController.js";
 
-import { loginLimiter, signupLimiter, forgotPasswordLimiter } from "../utils/rateLimiter.js";
+import {
+  loginLimiter,
+  signupLimiter,
+  forgotPasswordLimiter,
+} from "../utils/rateLimiter.js";
 
 const router = express.Router();
 
-router.post("/signup", signupLimiter, signup);// rate limit to prevent abuse
-router.post("/verify-otp", verifyOTP); // no limiter needed usually
-router.post("/login", loginLimiter, login); // rate limit to prevent brute-force
+router.post("/signup", signupLimiter, signup);
+router.post("/verify-otp", verifyOTP);
+router.post("/login", loginLimiter, login);
 router.post("/logout", logout);
 router.post("/forgot-password", forgotPasswordLimiter, forgotPassword);
 router.post("/reset-password/:token", resetPassword);
