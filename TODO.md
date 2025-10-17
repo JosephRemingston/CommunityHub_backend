@@ -18,13 +18,13 @@ A phased roadmap for the Community Hub project. Each phase contains features and
 
 ## Phase 0 – Setup & Core Architecture
 
-- [ ] Initialize Node.js + TypeScript backend (Express/NestJS)
-- [ ] Initialize React/Next.js frontend with TypeScript
-- [ ] Setup PostgreSQL / MongoDB for database
-- [ ] Setup Stripe / PayPal sandbox accounts
-- [ ] Configure cloud storage (AWS S3 / Cloudinary for media)
-- [ ] Setup CI/CD (GitHub Actions → AWS / Vercel deployment)
-- [ ] Environment variables management (.env files)
+- [=] Initialize Node.js + TypeScript backend (Express/NestJS)
+- [=] Initialize React/Next.js frontend with TypeScript
+- [=] Setup PostgreSQL / MongoDB for database
+- [=] Setup Stripe / PayPal sandbox accounts
+- [=] Configure cloud storage (AWS S3 / Cloudinary for media)
+- [=] Setup CI/CD (GitHub Actions → AWS / Vercel deployment)
+- [=] Environment variables management (.env files)
 
 ## Phase 1 – User Management (Basic Auth)
 
