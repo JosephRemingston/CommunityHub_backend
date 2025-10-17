@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -26,6 +27,7 @@
     "@vendia/serverless-express": "^4.12.6",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
