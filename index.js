@@ -10,6 +10,7 @@ dotenv.config();
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 // Connect to MongoDB
 connectDB();
@@ -40,6 +41,7 @@ app.get("/", (req, res) => {
 // Auth & User routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/admin", adminRoutes);
 
 // Local Development Server
 // Uncomment to run locally

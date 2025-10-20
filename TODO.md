@@ -28,13 +28,13 @@ A phased roadmap for the Community Hub project. Each phase contains features and
 
 ## Phase 1 – User Management (Basic Auth)
 
-- [ ] Roles: Backer / Creator / Admin
-- [ ] Sign up / Log in / Logout
-- [ ] Role selection (Backer, Creator)
-- [ ] Password hashing & secure login
-- [ ] Forgot password / Reset password via email
-- [ ] Email verification (Backer & Creator)
-- [ ] Admin account creation
+- [=] Roles: Backer / Creator / Admin
+- [=] Sign up / Log in / Logout
+- [=] Role selection (Backer, Creator)
+- [=] Password hashing & secure login
+- [=] Forgot password / Reset password via email
+- [=] Email verification (Backer & Creator)
+- [=] Admin account creation
 
 ## Phase 2 – Basic Backer Features
 
@@ -82,20 +82,20 @@ A phased roadmap for the Community Hub project. Each phase contains features and
 
 ### Campaign Approval
 
-- [ ] Approve / Reject campaigns
-- [ ] Comment on rejection reason
-- [ ] View all campaigns with filters: pending, live, ended
+- [=] Approve / Reject campaigns
+- [=] Comment on rejection reason
+- [=] View all campaigns with filters: pending, live, ended
 
 ### Refunds & Disputes
 
-- [ ] Automatic refunds if goal not met
-- [ ] Manual refund handling for disputes
+- [=] Automatic refunds if goal not met
+- [=] Manual refund handling for disputes
 
 ### Metrics
 
-- [ ] Total funds raised
-- [ ] Top campaigns by funds / backers
-- [ ] Daily / weekly activity charts
+- [=] Total funds raised
+- [=] Top campaigns by funds / backers
+- [=] Daily / weekly activity charts
 
 ## Phase 5 – Notifications & Communication
 
